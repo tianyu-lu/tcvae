@@ -432,7 +432,7 @@ def main():
             if utils.isnan(obj).any():
                 raise ValueError('NaN spotted in objective.')
             obj.mean().mul(-1).backward()
-            print("obj value: ", obj.mean().mul(-1).detatch())
+            print("obj value: ", obj.mean().mul(-1).cpu())
             elbo_running_mean.update(elbo.mean().data[0])
             optimizer.step()
 
