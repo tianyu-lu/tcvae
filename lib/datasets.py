@@ -7,12 +7,13 @@ import torchvision.transforms as transforms
 class Shapes(object):
 
     def __init__(self, dataset_zip=None):
-        loc = 'data/dsprites_ndarray_co1sh3sc6or40x32y32_64x64.npz'
-        if dataset_zip is None:
-            self.dataset_zip = np.load(loc, encoding='latin1')
-        else:
-            self.dataset_zip = dataset_zip
-        self.imgs = torch.from_numpy(self.dataset_zip['imgs']).float()
+        # loc = 'data/dsprites_ndarray_co1sh3sc6or40x32y32_64x64.npz'
+        # if dataset_zip is None:
+        #     self.dataset_zip = np.load(loc, encoding='latin1')
+        # else:
+        #     self.dataset_zip = dataset_zip
+        loc = "small.npy"
+        self.imgs = torch.from_numpy(np.load(loc)).float()
 
     def __len__(self):
         return self.imgs.size(0)
