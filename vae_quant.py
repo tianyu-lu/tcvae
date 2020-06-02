@@ -433,7 +433,7 @@ def main():
                 raise ValueError('NaN spotted in objective.')
             obj.mean().mul(-1).backward()
             print("obj value: ", obj.mean().mul(-1).cpu())
-            elbo_running_mean.update(elbo.mean().data[0])
+            elbo_running_mean.update(elbo.mean().item())
             optimizer.step()
 
             # report training diagnostics
