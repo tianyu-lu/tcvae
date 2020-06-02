@@ -12,7 +12,7 @@ class Shapes(object):
         #     self.dataset_zip = np.load(loc, encoding='latin1')
         # else:
         #     self.dataset_zip = dataset_zip
-        loc = "small.npy"
+        loc = "data/small.npy"
         self.imgs = torch.from_numpy(np.load(loc)).float()
 
     def __len__(self):
