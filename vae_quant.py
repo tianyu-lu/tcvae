@@ -251,6 +251,8 @@ class VAE(nn.Module):
                     self.beta * (logqz - logqz_prodmarginals) - \
                     (1 - self.lamb) * (logqz_prodmarginals - logpz)
             else:
+                print("KL middle: ", logqz - logqz_prodmarginals)
+                print("KL end ", logqz_prodmarginals - logpz)
                 modified_elbo = logpx - \
                     self.beta * (logqz - logqz_prodmarginals) - \
                     (1 - self.lamb) * (logqz_prodmarginals - logpz)
